@@ -1,0 +1,51 @@
+import { View, Text, StyleSheet } from "react-native";
+import { Colors } from "../constants/style";
+import Button from "./Button";
+
+function ErrorOverlay({ message, onConfirm }) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Something went wrong!</Text>
+
+      <Text style={styles.message}>
+        {message || "An unexpected error occurred."}
+      </Text>
+
+      <View style={styles.buttonContainer}>
+        <Button onPress={onConfirm}>Okay</Button>
+      </View>
+    </View>
+  );
+}
+
+export default ErrorOverlay;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.primary700,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 24,
+  },
+
+  title: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "white",
+    marginBottom: 12,
+    textAlign: "center",
+  },
+
+  message: {
+    fontSize: 16,
+    color: Colors.primary100,
+    textAlign: "center",
+    lineHeight: 24,
+    marginBottom: 28,
+  },
+
+  buttonContainer: {
+    minWidth: 120,
+  },
+});
